@@ -1,2 +1,5 @@
 node_modules
-config.json
+config
+package-lock.json
+package.json
+
