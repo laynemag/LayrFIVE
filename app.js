@@ -16,7 +16,7 @@ app.use(cookieSession({
 app.set('view engine', 'ejs');
 //public folder
 app.use(express.static('public'));
-// app.use(helmet());
+app.use(helmet());
 // app.use(passport.initialize());
 // app.use(passport.session());
 //sub routes

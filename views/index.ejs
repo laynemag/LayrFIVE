@@ -15,19 +15,34 @@
 <%- include('partials/layout/header.ejs') %> 
 
 <main>
+<!-- outside container -->
+  <div class="container-fluid d-flex justify-content-center">
 
-  <div class="border m-3">
-    <h3>Login</h3>
+  <!-- login form div-->
+  <div class="border m-3 col-9 justify-content-center">
+    
     <form action="/" method="POST">
-    
-    username: <input type="text" name="username" id="username"><br>
-    password: <input type="password" name="password" id="password"><br>
-    
-    <input type="submit">
-    
-    </form>
-  </div>
+      <h3>Login</h3>
 
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+      </div>
+  
+      <!-- button div -->
+    <div class="button d-flex justify-content-center">
+    <button type="submit" class="btn btn-outline-secondary m-2" id="login">Log In</button>
+    <button type="submit" class="btn btn-outline-secondary m-2" id="register">Register</button>
+    </div>
+    <!-- end of button div -->
+    </form>
+
+  </div>
+  <!-- end of login form div -->
+</div>
+<!-- end of outside container div -->
 
 </main>
     
