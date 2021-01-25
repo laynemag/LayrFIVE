@@ -22,14 +22,12 @@ app.set('view engine', 'ejs');
 
 //public folder
 app.use(express.static('public'));
-
-app.use(helmet());
-app.use(passport.initialize());
-app.use(passport.session());
-
+// app.use(helmet());
+// app.use(passport.initialize());
+// app.use(passport.session());
 //sub routes
 app.use(require('./routes'));
-app.use(require('./routes/login'));
+app.use(require('./routes/homepage'));
 app.use(require('./routes/registration'));
 
 
