@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const passport = require('passport');
-const authReq = require('../auth');
+const auth = require('../auth');
 
 router.get("/", (req, res) => {
     res.render('index');
@@ -13,8 +13,10 @@ passport.authenticate('local',
 failureRedirect: '/',
 failureFlash: 'Invalid username or password.'}))
 
+
 router.get("/protected", authReq, (req, res) => {
     console.log('authenticated');
+
     res.send('protected')
 })
 
