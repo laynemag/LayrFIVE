@@ -14,7 +14,6 @@ failureRedirect: '/',},
 
 
 router.get("/homepage", authReq, (req, res) => {
-    console.log('authenticated');
 
     res.render('homepage')
 })

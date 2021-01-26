@@ -19,7 +19,7 @@ router.get('/homepage/:userID', async (req, res) => {
         for (let i = 0 ; i < users.length ; i++){
             if (userID === users[i].id){
                 userObj = users[i]
-                // console.log(users[i].username);
+                console.log(users[i].username);
                 // authorObj = await db.author.findAll({where: {id:blogs[i].authorID}, raw:true})
             }
         }
@@ -35,6 +35,9 @@ router.get('/homepage/:userID', async (req, res) => {
     
     
 })
+
+// <%= userObj.username %> 
+{/* <a href="<%= userObj.github %> " class="card-link">My Github</a> */}
 
 
 module.exports = router;
