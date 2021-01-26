@@ -11,7 +11,8 @@ router.post("/",
 passport.authenticate('local', 
 {successRedirect: '/protected', 
 failureRedirect: '/',
-failureFlash: 'Invalid username or password.'}))
+// failureFlash: 'Invalid username or password.
+}));
 
 router.get("/protected", authReq, (req, res) => {
     console.log('authenticated');
