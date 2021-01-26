@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const passport = require('passport');
-const authReq = require('../auth');
+const auth = require('../auth');
 
 router.get("/", (req, res) => {
     res.render('index');
@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 
 router.post("/", passport.authenticate('local', {successRedirect: '/protected', failureRedirect: '/login'}))
 
-router.get("/protected", authReq, (req, res) => {
+router.get("/protected", auth, (req, res) => {
     console.log('authentiated');
     res.send('protected')
 })
