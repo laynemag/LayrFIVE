@@ -14,7 +14,7 @@ failureRedirect: '/',
 failureFlash: 'Invalid username or password.'}))
 
 
-router.get("/protected", authReq, (req, res) => {
+router.get("/protected", auth, (req, res) => {
     console.log('authenticated');
 
     res.send('protected')
