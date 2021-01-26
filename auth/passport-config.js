@@ -9,8 +9,8 @@ const init = (passport) => {
         .then(records =>{
             //[{}]
             if( records  != null){
-                   let record = records[0];
-                   bcrypt.compare(password, record.password, (err, response)=>{
+                    let record = records[0];
+                    bcrypt.compare(password, record.password, (err, response)=>{
                         if(response){
                             //this means a match, user with correct password 
                             console.log('passwords matched');
@@ -22,7 +22,7 @@ const init = (passport) => {
                             console.log('passwords didnt');
                             done(null, false)
                         }
-                   })
+                    })
             }
             else{
                 //no session fo you
