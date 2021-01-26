@@ -11,6 +11,7 @@ router.post("/registration", async (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
     let email = req.body.email;
+    let github = req.body.githubUsername;
     console.log(req.body);
 
 
@@ -22,10 +23,11 @@ router.post("/registration", async (req, res) => {
         username: username,
         email: email,
         password: passwordEncrypted,
-        roleID: 1,
+        github: github,
+        roletype: 1,
     });
 
-    res.redirect("/login");
+    res.redirect("/");
     } catch (error) {
     res.send(`error: can't register this username`);
     }
