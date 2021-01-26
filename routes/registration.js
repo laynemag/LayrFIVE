@@ -8,9 +8,20 @@ router.get("/registration", (req, res) => {
 });
 
 router.post("/registration", async (req, res) => {
+
+    
     let username = req.body.username;
     let password = req.body.password;
-    let email = req.body.email;
+    // let email = req.body.email;
+    // let githubUsername = req.body.githubUsername;
+    // let url = `https://api.github.com/users/${username}`;
+    // let response = await fetch(url)
+    // let result = await response.json()
+
+    // if(result.avatar_url){
+    //     let imageURL = results.avatar_url
+    // }
+
     console.log(req.body);
 
 
@@ -20,9 +31,11 @@ router.post("/registration", async (req, res) => {
     
     let insertResult = await db.users.create({
         username: username,
-        email: email,
+        // email: email,
         password: passwordEncrypted,
-        roleID: 1,
+        // github: `www.github.com/${githubUsername}`,
+        // imageurl: imageURL,
+        // roleID: 1,
     });
 
     res.redirect("/login");
