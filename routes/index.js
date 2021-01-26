@@ -7,10 +7,16 @@ router.get("/", (req, res) => {
     res.render('index');
 });
 
-router.post("/", passport.authenticate('local', {successRedirect: '/protected', failureRedirect: '/login'}))
+router.post("/",
+passport.authenticate('local', 
+{successRedirect: '/protected', 
+failureRedirect: '/',
+failureFlash: 'Invalid username or password.'}))
 
-router.get("/protected", auth, (req, res) => {
-    console.log('authentiated');
+
+router.get("/protected", authReq, (req, res) => {
+    console.log('authenticated');
+
     res.send('protected')
 })
 
@@ -27,6 +33,5 @@ router.get("/logout", (req, res) => {
 })
 
 module.exports = router;
-
 
 
