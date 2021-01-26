@@ -11,7 +11,7 @@ router.post("/registration", async (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
     let email = req.body.email;
-
+    console.log(req.body);
 
 
     try {
