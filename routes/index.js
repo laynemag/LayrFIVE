@@ -1,23 +1,22 @@
 const express = require("express");
 const router = express.Router();
 const passport = require('passport');
-const auth = require('../auth');
+const authReq = require('../auth');
 
 router.get("/", (req, res) => {
     res.render('index');
 });
 
-router.post("/",
-passport.authenticate('local', 
-{successRedirect: '/protected', 
-failureRedirect: '/',
-failureFlash: 'Invalid username or password.'}))
+router.post("/", passport.authenticate('local', 
+{successRedirect: "/homepage", 
+failureRedirect: '/',}, 
+));
 
 
-router.get("/protected", authReq, (req, res) => {
+router.get("/homepage", authReq, (req, res) => {
     console.log('authenticated');
 
-    res.send('protected')
+    res.render('homepage')
 })
 
 router.get("/error", (req, res) => {
