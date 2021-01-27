@@ -11,11 +11,13 @@ submitButton.addEventListener('click', async (e) => {
           let url = `https://api.github.com/users/${githubUsername.value}`
           console.log(url);
           let response = await fetch(url)
+          let result = await response.json()
           console.log('1');
-          if (response.avatar_url){
-            imageGithub = response.avatar_url
+
+          if (result.avatar_url){
+            imageGithub = result.avatar_url
           }
-          console.log(imageurlGH);
+          console.log(imageGithub);
           console.log('2');
           let responseBack = await fetch('/registration', {
             method: 'POST',
