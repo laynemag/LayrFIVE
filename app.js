@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const helmet = require('helmet');
 const PORT = 3000;
+const helmet = require('helmet')
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
@@ -22,7 +22,10 @@ app.set('view engine', 'ejs');
 
 //public folder
 app.use(express.static('public'));
-app.use(helmet());
+app.use(
+    helmet({
+      contentSecurityPolicy: false,
+    }));
 app.use(passport.initialize());
 app.use(passport.session());
 
