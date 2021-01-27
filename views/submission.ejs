@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Post A Project</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <%- include('partials/layout/header.ejs') %> 
+    <main>
+        <div class="border m-3 col-10">
+        <form action="/submission" method="POST">
+        <h3>Submit a Project</h3>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Project Title" aria-label="postTitle" name="postTitle">
+        </div>
+        <div class="input-group mb-3">
+              <label for=""></label>
+              <textarea class="form-control" name="postDesc" id="" rows="3" placeholder="a brief description of your project"></textarea>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="gitHub repository link" aria-label="gitHub" name="gitHub"> 
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="site link (if hosted)" aria-label="hostLink" name="hostLink">
+        </div>
+        <small class="form-text text-muted mb-3">
+            Select the Languages used in your project:
+        </small>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="python" id="python" value="python">
+            <label class="form-check-label" for="python">
+              Python
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="javascript" id="javascript" value="javascript">
+            <label class="form-check-label" for="javascript">
+              Javascript
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="csharp" id="csharp" value="csharp">
+            <label class="form-check-label" for="csharp">
+              C#
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="html" id="html" value="html">
+            <label class="form-check-label" for="html">
+              HTML
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="css" id="css" value="css">
+            <label class="form-check-label" for="css">
+              CSS
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="java" id="java" value="java">
+            <label class="form-check-label" for="java">
+              Java
+            </label><br>
+            <button type="submit" class="btn btn-outline-secondary m-4" id="submitForm">Submit Project</button>
+          </div>
+        </div>
+
+          <!-- end of checkboxes -->
+
+        </form>
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../js/submission.js"></script>
+  </body>
+</html>
