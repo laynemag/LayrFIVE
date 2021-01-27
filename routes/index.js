@@ -7,15 +7,15 @@ router.get("/", (req, res) => {
     res.render('index');
 });
 
-router.post("/",
-passport.authenticate('local', 
-{successRedirect: '/protected', 
-failureRedirect: '/',
-failureFlash: 'Invalid username or password.'}))
+router.post("/", passport.authenticate('local', 
+{successRedirect: "/homepage", 
+failureRedirect: '/',}, 
+));
 
-router.get("/protected", authReq, (req, res) => {
-    console.log('authenticated');
-    res.send('protected')
+
+router.get("/homepage", authReq, (req, res) => {
+
+    res.render('homepage')
 })
 
 router.get("/error", (req, res) => {
