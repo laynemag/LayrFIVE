@@ -42,15 +42,16 @@
 
 <!-- sidebar -->
 <div class="col-5 col-lg-3 border">
-  <h3>Profile Sidebar</h3>
-  <div class="d-flex justify-content-center">
+  <!-- <h3>Profile Sidebar</h3> -->
+  <div class="d-flex justify-content-center my-3">
   <img src="../images/femaleuser.png" class="card-img-top w-50" alt="...">
   </div>
   <!-- start of card -->
   <div class="card w-100" >
     
     <div class="card-body">
-      <h5 class="card-title">User Name</h5>
+      
+      <h5 class="card-title"><%= userObj.username %> </h5>
       <p class="card-text">Junior Software Engineer. Student at Digital Crafts. Looking to collaborate with other developers on projects.</p>
     </div>
     <ul class="list-group list-group-flush">
@@ -60,8 +61,8 @@
       <li class="list-group-item">Python</li>
     </ul>
     <div class="card-body">
-      <a href="#" class="card-link">My Github</a>
-      <a href="#" class="card-link">Linked In</a>
+      <a href="https://github.com/<%=userObj.github%>" target="_blank" class="card-link">My Github</a>
+      <a href="/homepage/2" class="card-link">Add Project</a>
     </div>
   </div>
 <!-- end card div -->

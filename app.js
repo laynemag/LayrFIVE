@@ -9,6 +9,7 @@ app.use(express.json());
 const passport = require('passport');
 
 require('./auth/passport-config')(passport);
+
 var cookieSession = require('cookie-session');
 app.use(cookieSession({
     name: 'session',
