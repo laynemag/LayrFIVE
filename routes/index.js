@@ -2,15 +2,16 @@ const express = require("express");
 const router = express.Router();
 const passport = require('passport');
 const authReq = require('../auth');
+const db = require("../models");
 
 router.get("/", (req, res) => {
     res.render('index');
 });
 
-router.post("/", passport.authenticate('local', 
-{successRedirect: "/homepage", 
-failureRedirect: '/',}, 
-));
+
+router.post("/", passport.authenticate('local'), (req, res)=>{
+    res.redirect(`/homepage/${req.user.id}`)
+});
 
 
 router.get("/homepage", authReq, (req, res) => {
@@ -31,5 +32,7 @@ router.get("/logout", (req, res) => {
 })
 
 module.exports = router;
+
+
 
 
