@@ -4,6 +4,7 @@ const db = require("../models");
 // const auth = require('../auth');
 
 router.get('/homepage', (req, res) => {
+    console.log(req.body);
     res.render('homepage')
 })
 
@@ -36,8 +37,6 @@ router.get('/homepage/:userID', async (req, res) => {
     
 })
 
-// <%= userObj.username %> 
-{/* <a href="<%= userObj.github %> " class="card-link">My Github</a> */}
 
 
 module.exports = router;

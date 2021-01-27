@@ -2,7 +2,7 @@ let auth = (req, res, next) => {
     if (req.isAuthenticated()) {
       next();
     } else {
-      res.redirect("/error");
+      res.redirect("/");
     }
   };
   module.exports = auth;
