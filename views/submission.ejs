@@ -16,18 +16,25 @@
         <form action="/submission" method="POST">
         <h3>Submit a Project</h3>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Project Title" aria-label="postTitle" name="postTitle">
+            <input type="text" class="form-control" placeholder="Project Title" aria-label="postTitle" name="postTitle" id="title">
         </div>
         <div class="input-group mb-3">
               <label for=""></label>
-              <textarea class="form-control" name="postDesc" id="" rows="3" placeholder="a brief description of your project"></textarea>
+              <textarea class="form-control" name="postDesc" id="" rows="3" placeholder="a brief description of your project" id="description"></textarea>
             </div>
         </div>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="gitHub repository link" aria-label="gitHub" name="gitHub"> 
+            <input type="text" class="form-control" placeholder="Username on Github" aria-label="gitHub username" name="gitHubUsername" id="githubUsername" value="<%= userObj.github %> "> 
         </div>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="site link (if hosted)" aria-label="hostLink" name="hostLink">
+            <input type="text" class="form-control" placeholder="Repository Name on Github" aria-label="gitHub" name="github" id="githubProject"> 
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="site link (if hosted)" aria-label="hostLink" name="hostLink" id="hostlink">
+        </div>
+        <div class="input-group mb-3">
+            <h5>Are you interested in collaborators?</h5>
+            <input type="checkbox" class="form-control" placeholder="collaborators" aria-label="collaborators" name="collaborators" id="collaborators">
         </div>
         <small class="form-text text-muted mb-3">
             Select the Languages used in your project:

@@ -28,8 +28,9 @@ router.post("/registration", async (req, res) => {
         // roletype: 1,
     });
 
-    res.redirect("/");
-    } catch (error) {
+    if (insertResult){
+        res.redirect("/");
+    }} catch (error) {
     res.send(`error: can't register this username`);
     }
 });

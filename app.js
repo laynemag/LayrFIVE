@@ -29,6 +29,12 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Accessing User
+app.get('*', function(req, res,next){
+    res.locals.user = req.user || null;
+    next();
+})
+
 //sub routes
 app.use(require('./routes'));
 app.use(require('./routes/homepage'));
