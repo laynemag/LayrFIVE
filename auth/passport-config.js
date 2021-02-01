@@ -4,10 +4,11 @@ const db = require('../models');
 //req.body.username 
 //req.body.password
 const init = (passport) => {
-    passport.use( new LocalStrategy((username, password, done) =>{
-        db.users.findAll({where: {username: username}})
-        .then(records =>{
-            //[{}]
+    passport.use( new LocalStrategy(async(username, password, done) =>{
+        
+        try{
+        await db.users.findAll({where: {username: username}})
+            
             if( records  != null){
                     let record = records[0];
                     bcrypt.compare(password, record.password, (err, response)=>{
@@ -17,9 +18,9 @@ const init = (passport) => {
                             //serialize user gets called here
                             done(null, { id: record.id, username: record.username })
                         }
-                        else {
+                        else{
                             //no session for you - username mismatch 
-                            console.log('passwords didnt');
+                            console.log();
                             done(null, false)
                         }
                     })
@@ -29,8 +30,13 @@ const init = (passport) => {
                 console.log(`user not found`)
                 done(null, false)
             }
-        })
-    }))
+        
+    }
+    catch (err){
+        console.log("error in config");
+        done(null,false)
+    }
+}))
     passport.serializeUser((user, done) =>{
         //passport adding information to the sessions
         console.log(`serializing user`)

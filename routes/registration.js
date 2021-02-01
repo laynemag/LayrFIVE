@@ -1,13 +1,15 @@
 const express = require("express");
+const app = express();
 const router = express.Router();
 const db = require("../models");
 const bcrypt = require("bcryptjs");
+const passport = require('passport');
 
 router.get("/registration", (req, res) => {
     res.render("registration");
 });
 
-router.post("/registration", async (req, res) => {
+router.post("/registration", async (req, res, next) => {
     let username = req.body.username;
     let password = req.body.password;
     let email = req.body.email;
@@ -24,13 +26,22 @@ router.post("/registration", async (req, res) => {
         email: email,
         password: passwordEncrypted,
         github: github,
-        imageurl: imageurl
-        // roletype: 1,
-    });
+        imageurl: imageurl,
+        
+    });next();
 
-    if (insertResult){
-        res.redirect("/");
-    }} catch (error) {
+    app.get('/', function(req, res, next) {
+        passport.authenticate('local', function(err, user, info) {
+        if (err) { return next(err); }
+        if (!user) { return res.redirect('/login'); }
+        req.logIn(user, function(err) {
+            if (err) { return next(err); }
+            return res.redirect(`/homepage/${req.user.id}`);
+        });
+        })(req, res, next);
+    });
+    
+} catch (error) {
     res.send(`error: can't register this username`);
     }
 });

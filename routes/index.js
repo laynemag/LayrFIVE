@@ -9,8 +9,23 @@ router.get("/", (req, res) => {
 });
 
 
-router.post("/", passport.authenticate('local'), (req, res)=>{
-    res.redirect(`/homepage/${req.user.id}`)
+// router.post ("/", passport.authenticate('local'), (req, res)=>{
+
+//     res.redirect(`/homepage/${req.user.id}`)
+// }
+
+// );
+
+router.post('/', function(req, res, next) {
+    passport.authenticate('local', function(err, user, info) {
+        console.log("you are here")
+    if (err) { return next(err); }
+    if (!user) { return res.redirect('/'); }
+    req.logIn(user, function(err) {
+        if (err) { return next(err); }
+        return res.redirect(`/homepage/${req.user.id}`);
+    });
+    })(req, res, next);
 });
 
 
