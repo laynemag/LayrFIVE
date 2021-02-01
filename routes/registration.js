@@ -8,39 +8,29 @@ router.get("/registration", (req, res) => {
 });
 
 router.post("/registration", async (req, res) => {
-
-    
     let username = req.body.username;
     let password = req.body.password;
     let email = req.body.email;
-    let githubUsername = req.body.githubUsername;
-    let imageURL = req.body.imageURL;
-    console.log(req.body);
+    let github = req.body.githubUsername;
+    let imageurl = req.body.imageurl
 
 
     try {
-        let passwordEncrypted = bcrypt.hashSync(password, 8);
-        // let response = await fetch(url)
-        // let result = await response.json()
-        // let github = `www.github.com/${req.body.githubUsername}`;
-        // let url = `https://api.github.com/users/${github}`
+    let passwordEncrypted = bcrypt.hashSync(password, 8);
 
-        // if(result.avatar_url){
-        //     let imageurl = result.avatar_url
-        // }
-
-        
-        let insertResult = await db.users.create({
-            username: username,
-            email: email,
-            password: passwordEncrypted,
-            imageurl: imageURL, 
-            github: githubUsername
-            // roletype: 1,
+    
+    let insertResult = await db.users.create({
+        username: username,
+        email: email,
+        password: passwordEncrypted,
+        github: github,
+        imageurl: imageurl
+        // roletype: 1,
     });
 
-    res.redirect("/");
-    } catch (error) {
+    if (insertResult){
+        res.redirect("/");
+    }} catch (error) {
     res.send(`error: can't register this username`);
     }
 });

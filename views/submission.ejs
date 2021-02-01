@@ -22,18 +22,25 @@
         <form action="/submission" method="POST">
         <h3>Submit a Project</h3>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Project Title" aria-label="postTitle" name="postTitle">
+            <input type="text" class="form-control" placeholder="Project Title" aria-label="postTitle" name="postTitle" id="title">
         </div>
         <div class="input-group mb-3">
               <label for=""></label>
-              <textarea class="form-control" name="postDesc" id="" rows="3" placeholder="a brief description of your project"></textarea>
+              <textarea class="form-control" name="postDesc" id="" rows="3" placeholder="a brief description of your project" id="description"></textarea>
             </div>
         </div>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="gitHub repository link" aria-label="gitHub" name="gitHub"> 
+            <input type="text" class="form-control" placeholder="Username on Github" aria-label="gitHub username" name="gitHubUsername" id="githubUsername" value="<%= userObj.github %> "> 
         </div>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="site link (if hosted)" aria-label="hostLink" name="hostLink">
+            <input type="text" class="form-control" placeholder="Repository Name on Github" aria-label="gitHub" name="github" id="githubProject"> 
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="site link (if hosted)" aria-label="hostLink" name="hostLink" id="hostlink">
+        </div>
+        <div class="input-group mb-3">
+            <h5>Are you interested in collaborators?</h5>
+            <input type="checkbox" class="form-control" placeholder="collaborators" aria-label="collaborators" name="collaborators" id="collaborators">
         </div>
         <small class="form-text text-muted mb-3">
             Select the Languages used in your project:
@@ -83,7 +90,9 @@
     </main>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="../js/submission.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/js/submission.js"></script>
   </body>
 </html>
