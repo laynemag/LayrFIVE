@@ -32,7 +32,7 @@ submitForm.addEventListener('click', async (e) => {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
-            username: name,
+            usernameGithub: name,
             postTitle: title.value,
             postDesc: description,
             languages: languages,

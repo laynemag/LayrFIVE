@@ -36,7 +36,6 @@ router.get('/homepage/:userID', async (req, res) => {
             userObj: req.user.dataValues,
     
             // projectObj: projectObj
-
         })
         
     }
