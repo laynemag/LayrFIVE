@@ -13,9 +13,9 @@ router.get('/homepage/:userID', async (req, res) => {
     console.log("---------------");
     console.log(req.user.dataValues.username);
     try{
-        // let userID = parseInt(req.params.userID);
+        let userID = parseInt(req.params.userID);
         // let userObj;
-        // let users = await db.users.findAll({raw: true});
+        let users = await db.users.findAll({raw: true});
         // let projectObj;
 
 
@@ -28,15 +28,13 @@ router.get('/homepage/:userID', async (req, res) => {
         //     }
         // }
 
-
-
-        projectObj = await db.submissions.findAll({where: {id:req.params.userID}, raw:true})
+        // projectObj = await db.submissions.findAll({where: {id:req.params.userID}, raw:true})
     
 
 
         res.render('homepage', {
             userObj: req.user.dataValues,
-            projectObj: projectObj
+            // projectObj: projectObj
 
         })
         
