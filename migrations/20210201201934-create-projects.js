@@ -1,25 +1,17 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('submissions', {
-      // id: {
-      //   allowNull: false,
-      //   autoIncrement: true,
-      //   primaryKey: true,
-      //   type: Sequelize.INTEGER
-      // },
+    await queryInterface.createTable('projects', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
       userID: {
         type: Sequelize.INTEGER,
         model: 'users',
         key: 'id'
-      },
-      username: {
-        type: Sequelize.STRING,
-        model: 'users',
-        key: 'username'
-      },
-      postID: {
-        type: Sequelize.INTEGER
       },
       postTitle: {
         type: Sequelize.STRING
@@ -28,12 +20,15 @@ module.exports = {
         type: Sequelize.STRING
       },
       languages: {
-        type: Sequelize.STRING
+        type: Sequelize.ARRAY(Sequelize.TEXT)
       },
       collaborators: {
+        type: Sequelize.BOOLEAN
+      },
+      githubUsername: {
         type: Sequelize.STRING
       },
-      gitHub: {
+      githubRepo: {
         type: Sequelize.STRING
       },
       hostLink: {
@@ -53,6 +48,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('submissions');
+    await queryInterface.dropTable('projects');
   }
 };

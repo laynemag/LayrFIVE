@@ -8,33 +8,37 @@ router.get("/submission", (req, res) => {
     });
 });
 
-router.post("/submission"), async (req, res) => {
-    let username = req.body.name;
+router.post("/submission", async (req, res) => {
+    let usernameGithub = req.body.usernameGithub;
     let postTitle = req.body.postTitle;
     let postDesc = req.body.postDesc;
     let languages = req.body.languages;
     let hostLink = req.body.hostLink;
     let score = req.body.score;
-    console.log(req.body);
 
-    try {
-        let insertResult = await db.submissions.create({
-            username: username,
-            postTitle: postTitle,
-            postDesc: postDesc,
-            gitHub: gitHub,
-            hostLink: hostLink,
-            languages: languages,
-            score: score
-        });
+
+    // try {
+    let insertResult = await db.submission.create({
+        postTitle: postTitle,
+        // postDesc: postDesc,
+        gitHub: usernameGithub,
+        hostLink: hostLink,
+        // languages: languages,
+        score: score
+    });
+    console.log('++++++++++++');
+    console.log(insertResult);
     if (insertResult){
-        res.redirect("/");
-    }} catch (error) {
-    res.send(`error: can't submit this project`);
+        res.redirect("/homepage");
     }
+// } 
+    
+    // catch (error) {
+    // res.send(`error: can't submit this project`);
+    // }
 
     
-} 
+})
 
 
 module.exports = router;

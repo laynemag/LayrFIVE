@@ -10,17 +10,27 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+      body{
+        background-color:rgb(217, 221, 228);
+      }
+    </style>
   </head>
   <body>
-<!-- header partial -->
-<%- include('partials/layout/header.ejs') %> 
+
 
 <main>
 <!-- outside container -->
-  <div class="container-fluid d-flex justify-content-center">
+  <div class="container-fluid d-flex align-items-center justify-content-center flex-column" style="height: 100vh;">
+
+  <!-- image -->
+  <div class="">
+    <img src="../images/layrFIVEcircle.png" alt="" style="height: 200px;">
+  </div>
 
   <!-- login form div-->
-  <div class="border m-3 col-9 justify-content-center">
+  <div class="border m-3 col-9 justify-content-center bg-white p-3" style="border-radius: 6%;">
     
     <form action="/" method="POST">
       <h3>Login</h3>
@@ -52,7 +62,6 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
     <script src="../js/index.js"></script>
   </body>
 </html>

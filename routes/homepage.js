@@ -27,10 +27,9 @@ router.get('/homepage/:userID', async (req, res) => {
         //         // authorObj = await db.author.findAll({where: {id:blogs[i].authorID}, raw:true})
         //     }
         // }
+
         // projectObj = await db.submissions.findAll({where: {id:req.params.userID}, raw:true})
-        
-
-
+    
 
 
         res.render('homepage', {
