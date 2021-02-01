@@ -22,10 +22,7 @@ app.set('view engine', 'ejs');
 
 //public folder
 app.use(express.static('public'));
-app.use(
-    helmet({
-      contentSecurityPolicy: false,
-    }));
+app.use(helmet({contentSecurityPolicy: false,}));
 app.use(passport.initialize());
 app.use(passport.session());
 
