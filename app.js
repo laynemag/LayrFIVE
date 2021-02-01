@@ -40,6 +40,7 @@ app.use(require('./routes'));
 app.use(require('./routes/homepage'));
 app.use(require('./routes/registration'));
 app.use(require('./routes/submission'));
+app.use(require('./routes/project'));
 
 
 app.listen(PORT, () => {
