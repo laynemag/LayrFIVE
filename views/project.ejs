@@ -61,30 +61,32 @@
 
 <!-- sidebar -->
 <div class="col-5 col-lg-3 border">
-  <h3>Profile Sidebar</h3>
-  <div class="d-flex justify-content-center">
-  <img src="../images/femaleuser.png" class="card-img-top w-50" alt="...">
-  </div>
-  <!-- start of card -->
-  <div class="card w-100" >
+    <h3 class="mx-3"><%= userObj.username %></h3>
+    <div class="d-flex justify-content-center">
+    <img src="<%=userObj.imageurl%>" class="card-img-top w-50 mb-3" alt="..." style="border-radius: 50%;">
+    </div>
+    <!-- start of card -->
+    <div class="card w-100" >
+      
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text">Junior Software Engineer. Student at Digital Crafts. Looking to collaborate with other developers on projects.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><i class="fab fa-js"></i> Javascript </li>
+        <li class="list-group-item"> <i class="fab fa-html5"></i> HTML</li>
+        <li class="list-group-item"><i class="fab fa-css3-alt"></i> CSS </li>
+        <li class="list-group-item"><i class="fab fa-python"></i> Python </li>
+        <li class="list-group-item"><i class="fab fa-cuttlefish"></i><i class="fas fa-hashtag"></i></li>
+      </ul>
+      <div class="card-body">
+        <button type="button" class="btn btn-primary"><a href="<%= userObj.github%> " class="card-link" target="_blank" style="color: white;">My Github</a></button>
     
-    <div class="card-body">
-      <h5 class="card-title"><%= userObj.username %> </h5>
-      <p class="card-text">Junior Software Engineer. Student at Digital Crafts. Looking to collaborate with other developers on projects.</p>
+        <!-- <a href="#" class="card-link">Linked In</a> -->
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Javascript</li>
-      <li class="list-group-item">HTML</li>
-      <li class="list-group-item">CSS</li>
-      <li class="list-group-item">Python</li>
-    </ul>
-    <div class="card-body">
-      <a href="https://github.com/<%= userObj.github %> " class="card-link" target="_blank">My Github</a>
-      <!-- <a href="#" class="card-link">Linked In</a> -->
-    </div>
+  <!-- end card div -->
   </div>
-<!-- end card div -->
-</div>
 <!-- end of sidebar div -->
 </div>
 <!-- end of main container div -->

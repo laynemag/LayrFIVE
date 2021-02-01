@@ -29,7 +29,7 @@ router.get('/project', async (req, res) => {
 
         res.render('project', {
             userObj: req.user.dataValues,
-            // projectObj: projectObj
+    
 
         })
         

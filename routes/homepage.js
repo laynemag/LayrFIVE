@@ -34,6 +34,7 @@ router.get('/homepage/:userID', async (req, res) => {
 
         res.render('homepage', {
             userObj: req.user.dataValues,
+    
             // projectObj: projectObj
 
         })

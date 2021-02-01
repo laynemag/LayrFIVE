@@ -12,6 +12,8 @@
   <body>
     <%- include('partials/layout/header.ejs') %> 
     <main>
+
+      <div class="container-fluid p-5">
         <div class="border m-3 col-10">
         <form action="/submission" method="POST">
         <h3>Submit a Project</h3>
@@ -23,19 +25,20 @@
               <textarea class="form-control" name="postDesc" id="" rows="3" placeholder="a brief description of your project" id="description"></textarea>
             </div>
         </div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 col-10">
             <input type="text" class="form-control" placeholder="Username on Github" aria-label="gitHub username" name="gitHubUsername" id="githubUsername" value="<%= userObj.github %> "> 
         </div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 col-10">
             <input type="text" class="form-control" placeholder="Repository Name on Github" aria-label="gitHub" name="github" id="githubProject"> 
         </div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 col-10">
             <input type="text" class="form-control" placeholder="site link (if hosted)" aria-label="hostLink" name="hostLink" id="hostlink">
         </div>
-        <div class="input-group mb-3">
-            <h5>Are you interested in collaborators?</h5>
-            <input type="checkbox" class="form-control" placeholder="collaborators" aria-label="collaborators" name="collaborators" id="collaborators">
+        <div class="input-group mb-3 col-10 col-lg-4">
+          <h5>Are you interested in collaborators?</h5>
+            <input type="checkbox" class="form-control" placeholder="collaborators" aria-label="collaborators" name="collaborators" id="collaborators"> 
         </div>
+        <!-- checkboxes -->
         <small class="form-text text-muted mb-3">
             Select the Languages used in your project:
         </small>
@@ -81,6 +84,8 @@
           <!-- end of checkboxes -->
 
         </form>
+      </div>
+      <!-- end of container div -->
     </main>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
