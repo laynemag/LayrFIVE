@@ -10,6 +10,7 @@ router.get("/submission", (req, res) => {
 
 router.post("/submission", async (req, res) => {
     let usernameGithub = req.body.usernameGithub;
+    let repoGithub = req.body.githubProject;
     let postTitle = req.body.postTitle;
     let postDesc = req.body.postDesc;
     let languages = req.body.languages;
@@ -18,12 +19,13 @@ router.post("/submission", async (req, res) => {
 
 
     // try {
-    let insertResult = await db.submission.create({
+    let insertResult = await db.projects.create({
         postTitle: postTitle,
         // postDesc: postDesc,
-        gitHub: usernameGithub,
+        languages: languages,
+        githubUsername: usernameGithub,
+        githubRepo: repoGithub,
         hostLink: hostLink,
-        // languages: languages,
         score: score
     });
     console.log('++++++++++++');

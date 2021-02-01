@@ -19,6 +19,7 @@ submitForm.addEventListener('click', async (e) => {
 
     console.log(collaborators.value);
     console.log(description);
+    console.log(githubProject);
 
     try{
         let url = `https://api.github.com/repos/${name}/${githubProject.value}/languages`
@@ -36,6 +37,7 @@ submitForm.addEventListener('click', async (e) => {
             postTitle: title.value,
             postDesc: description,
             languages: languages,
+            githubProject: githubProject.value,
             // collaborators: collaborators.value,
             hostLink: hostLink.value,
             score: 0

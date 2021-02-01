@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     userID: DataTypes.INTEGER,
     postTitle: DataTypes.STRING,
     postDesc: DataTypes.STRING,
-    languages: DataTypes.ARRAY,
+    languages: DataTypes.ARRAY(DataTypes.STRING),
     collaborators: DataTypes.BOOLEAN,
     githubUsername: DataTypes.STRING,
     githubRepo: DataTypes.STRING,
