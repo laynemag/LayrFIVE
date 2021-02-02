@@ -5,7 +5,11 @@ const db = require("../models");
 
 router.get('/homepage', (req, res) => {
     console.log(req.body);
-    res.render('homepage')
+    console.log('===========');
+    console.log(req.user.dataValues);
+    res.render('homepage', {
+        userObj: req.user.dataValues,
+    })
 })
 
 

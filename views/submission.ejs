@@ -28,7 +28,7 @@
         </div>
         <div class="input-group mb-3">
               <label for=""></label>
-              <textarea class="form-control" name="postDesc" id="" rows="3" placeholder="a brief description of your project" id="description"></textarea>
+              <textarea class="form-control" name="postDesc" rows="3" placeholder="a brief description of your project" id="description"></textarea>
             </div>
         </div>
         <div class="input-group mb-3 col-10">
@@ -41,8 +41,14 @@
             <input type="text" class="form-control" placeholder="site link (if hosted)" aria-label="hostLink" name="hostLink" id="hostlink">
         </div>
         <div class="input-group mb-3 col-10 col-lg-4">
-          <h5>Are you interested in collaborators?</h5>
-            <input type="checkbox" class="form-control" placeholder="collaborators" aria-label="collaborators" name="collaborators" id="collaborators"> 
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="collaborators" id="collaborators" value='collaborators'>
+            <label class="form-check-label" for="collaborators">
+              Interested in Collaborators?
+            </label>
+          </div>
+          <!-- <h5>Are you interested in collaborators?</h5>
+            <input type="checkbox" class="form-control" placeholder="collaborators" aria-label="collaborators" name="collaborators" id="collaborators">  -->
         </div>
         <!-- checkboxes -->
         <small class="form-text text-muted mb-3">

@@ -18,16 +18,19 @@ submitForm.addEventListener('click', async (e) => {
     console.log('Project Submitted!');
 
     console.log(collaborators.value);
-    console.log(description);
-    console.log(githubProject);
+    console.log(description.value);
+    console.log(githubProject.value);
 
-    try{
+    // try{
         let url = `https://api.github.com/repos/${name}/${githubProject.value}/languages`
         let response = await fetch(url)
         let result = await response.json()
         let languages = Object.keys(result)
-        console.log(languages);
-        
+        let help = false
+
+        if (collaborators.value === "collaborators"){
+            help = true
+        }
 
         let responseBack = await fetch('/submission', {
           method: 'POST',
@@ -35,18 +38,18 @@ submitForm.addEventListener('click', async (e) => {
           body: JSON.stringify({
             usernameGithub: name,
             postTitle: title.value,
-            postDesc: description,
+            postDesc: description.value,
             languages: languages,
             githubProject: githubProject.value,
-            // collaborators: collaborators.value,
+            collaborators: help,
             hostLink: hostLink.value,
             score: 0
           })
         })
-      }
+    //   }
 
-      catch(error){
-        console.log(error);
-      }
+    //   catch(error){
+    //     console.log(error);
+    //   }
 
 })
