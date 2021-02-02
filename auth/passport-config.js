@@ -33,7 +33,7 @@ const init = (passport) => {
         
     }
     catch (err){
-        console.log("error in config");
+        console.log(err);
         done(null,false)
     }
 }))
