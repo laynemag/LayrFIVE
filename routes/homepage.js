@@ -13,6 +13,7 @@ router.get('/homepage', (req, res) => {
 })
 
 
+
 router.get('/homepage/:userID', async (req, res) => {
     console.log("---------------");
     console.log(req.user.dataValues.username);
@@ -20,7 +21,13 @@ router.get('/homepage/:userID', async (req, res) => {
         let userID = parseInt(req.params.userID);
         // let userObj;
         let users = await db.users.findAll({raw: true});
+        let projects = await db.projects.findAll({raw: true});
+        // console.log(projects);
         // let projectObj;
+
+        // for (let i = 0 ; i < users.length ; i++){
+
+        // }
 
 
         // for (let i = 0 ; i < users.length ; i++){
@@ -38,6 +45,7 @@ router.get('/homepage/:userID', async (req, res) => {
 
         res.render('homepage', {
             userObj: req.user.dataValues,
+            projects: projects
     
             // projectObj: projectObj
         })
