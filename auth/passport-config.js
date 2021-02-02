@@ -26,7 +26,6 @@ const init = (passport) => {
                     })
             }
             else{
-                //no session fo you
                 console.log(`user not found`)
                 done(null, false)
             }
