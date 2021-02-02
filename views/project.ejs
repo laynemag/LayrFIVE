@@ -40,7 +40,9 @@
   <!-- project card div -->
   <div class="card text-center">
     <div class="card-header blue1">
-        <%=user[0].username%> 
+        <div><%=user[0].username%> </div>
+        <div id="userID"><%= user[0].id %> </div>
+        <div id="projectID"><%= project[0].id%> </div>
     </div>
     <div class="card-body">
       <h5 class="card-title"><%= project[0].postTitle %> </h5>
