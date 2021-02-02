@@ -4,9 +4,7 @@ const db = require("../models");
 // const auth = require('../auth');
 
 router.get('/homepage', (req, res) => {
-    console.log(req.body);
-    console.log('===========');
-    console.log(req.user.dataValues);
+
     res.render('homepage', {
         userObj: req.user.dataValues,
     })
@@ -15,48 +13,30 @@ router.get('/homepage', (req, res) => {
 
 
 router.get('/homepage/:userID', async (req, res) => {
-    console.log("---------------");
-    console.log(req.user.dataValues.username);
+
     try{
         let userID = parseInt(req.params.userID);
-        // let userObj;
         let users = await db.users.findAll({raw: true});
         let projects = await db.projects.findAll({raw: true});
-        // console.log(projects);
-        // let projectObj;
-
-        // for (let i = 0 ; i < users.length ; i++){
-
-        // }
-
-
-        // for (let i = 0 ; i < users.length ; i++){
-        //     if (userID === users[i].id){
-        //         userObj = users[i]
-        //         console.log(users[i].username);
-        //         projectObj = await db.submissions.findAll({where: {id:users[i].authorID}, raw:true})
-        //         // authorObj = await db.author.findAll({where: {id:blogs[i].authorID}, raw:true})
-        //     }
-        // }
-
-        // projectObj = await db.submissions.findAll({where: {id:req.params.userID}, raw:true})
-    
-
 
         res.render('homepage', {
             userObj: req.user.dataValues,
-            projects: projects
-    
-            // projectObj: projectObj
+            projects: projects,
         })
-        
     }
     catch(error){
         res.send(error);
     }
-    
-    
 })
+
+
+
+router.post('/homepage/:userID', async ((req, res) => {
+    let language = req.body.language
+    
+    let profiles = await db.profiles.update({raw: true})
+    
+}))
 
 
 
