@@ -31,12 +31,34 @@ router.get('/homepage/:userID', async (req, res) => {
 
 
 
-// router.post('/homepage/:userID', async ((req, res) => {
-//     let language = req.body.language
+router.post('/homepage/:userID', async (req, res) => {
+    let language = req.body.language;
+    let score = req.body.score;
     
-//     // let profiles = await db.profiles.update({raw: true})
+    let record = await db.users.findAll(
+        {where: {id: req.params.userID}},
+        {raw: true})
+
+    console.log('+++++++++++');
+
+    let currentScore = record.score;
+    let newScore = currentScore + score
+
+
+    console.log(currentScore);
+
+
+    // let profile = await db.profile.update(
+    //     {userScoreJS: 3},
+    //     {where: {userID: req.params.userID}},
+    //     {raw: true})
+
+    // let project = await db.projects.update(
+    //     {score: newScore},
+    //     {where: {userID: }},
+    //     {raw: true})
     
-// }))
+})
 
 
 

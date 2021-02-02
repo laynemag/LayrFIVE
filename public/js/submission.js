@@ -19,7 +19,7 @@ submitForm.addEventListener('click', async (e) => {
     console.log(githubUsername);
 
 
-    // try{
+    try{
         let url = `https://api.github.com/repos/${name}/${githubProject.value}/languages`
         let response = await fetch(url)
         let result = await response.json()
@@ -46,10 +46,10 @@ submitForm.addEventListener('click', async (e) => {
             score: 0
           })
         })
-    //   }
+      }
 
-    //   catch(error){
-    //     console.log(error);
-    //   }
+      catch(error){
+        console.log(error);
+      }
 
 })
