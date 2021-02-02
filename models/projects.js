@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.users.hasMany(models.projects, {foreignKey: "id"})
+      models.comment.belongsTo(models.projects, {foreignKey: "projectID"})
     }
   };
   projects.init({
