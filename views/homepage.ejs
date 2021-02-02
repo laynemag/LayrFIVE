@@ -94,7 +94,7 @@
     <div class="card-footer text-muted blue6">
       | <% project.languages.forEach(language => { %>
       
-          <%= language %> |
+          <button id="<%= language %> "><%= language %> <i class="far fa-thumbs-up"></i></button> |
         
       <% }) %>
       
