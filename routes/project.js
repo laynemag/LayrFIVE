@@ -35,8 +35,8 @@ router.get('/project/:id/:userID', async (req, res) => {
             userObj: req.user.dataValues,
             project: project,
             projectID: projectID,
-            user, user,
-            comment, comment
+            user: user,
+            comment: comment
     
 
         })
