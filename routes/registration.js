@@ -4,12 +4,13 @@ const router = express.Router();
 const db = require("../models");
 const bcrypt = require("bcryptjs");
 const passport = require('passport');
+const home = require("./index")
 
 router.get("/registration", (req, res) => {
     res.render("registration");
 });
 
-router.post("/registration", async (req, res,) => {
+router.post("/registration", async (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
     let email = req.body.email;
@@ -29,10 +30,8 @@ router.post("/registration", async (req, res,) => {
         imageurl: imageurl,
         
     })
-
-    res.redirect("/")
     
-} catch (error) {
+    } catch (error) {
     res.send(`error: can't register this username`);
     }
 

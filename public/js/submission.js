@@ -45,11 +45,14 @@ submitForm.addEventListener('click', async (e) => {
             hostLink: hostLink.value,
             score: 0
           })
+          
         })
+
       }
 
       catch(error){
         console.log(error);
       }
 
+      window.location.assign(`/homepage/:id`)
 })

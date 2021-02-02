@@ -82,21 +82,25 @@
 <% projects.forEach(project => { %>
   
   <!-- project card div -->
-  <div class="card text-center mx-1 my-1">
+  <div class="card text-center mx-1 my-2">
     <div class="card-header blue1">
-      Project Owner -- can remove this header to make card more compact
+    <% users.forEach(user => { %>
+      <% if (user.id === project.userID) { %>
+        <%= user.username %> 
+      <% } %>
+    <% }) %>
+    
     </div>
     <div class="card-body">
       <h5 class="card-title"><%=project.postTitle%> </h5>
       <p class="card-text"><%= project.postDesc %> </p>
-      <a href="/project/<%=project.id%>/<%= project.userID %>" class="btn btn-secondary">Go to Project</a>
+      <p class="card-text">|<% project.languages.forEach(language => { %>
+              <%= language %> |
+      <% }) %> </p>
+      <a href="/project/<%=project.id%>/<%= project.userID %>" class="btn btn-secondary blue5">Go to Project</a>
     </div>  
-    <div class="card-footer text-muted blue6" id="languages">
-      | <% project.languages.forEach(language => { %>
-      
-          <button id="<%= language %> "><%= language %> <i class="far fa-thumbs-up"></i></button> |
-        
-      <% }) %>
+
+    <div class="card-footer text-muted blue3">
       
     </div>
   </div>
@@ -111,7 +115,7 @@
 <!-- sidebar -->
 
 <div class="col-5 col-lg-3 blue4">
-  <h3 class="mx-3 mt-2 text-grey" ><%= userObj.username %></h3>
+  <h3 class="mx-3 mt-2 text-grey" >Hello, <%= userObj.username %>!</h3>
   <div class="d-flex justify-content-center blue4">
   <img src="<%=userObj.imageurl%>" class="card-img-top w-50 mb-3" alt="..." style="border-radius: 50%; border: solid;">
 
@@ -143,6 +147,7 @@
 <!-- end of main container div -->
 
 </main>
+
 
 
 
