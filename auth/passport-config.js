@@ -7,7 +7,7 @@ const init = (passport) => {
     passport.use( new LocalStrategy(async(username, password, done) =>{
         
         try{
-        await db.users.findAll({where: {username: username}})
+        let records = await db.users.findAll({where: {username: username}})
             
             if( records  != null){
                     let record = records[0];
@@ -33,7 +33,7 @@ const init = (passport) => {
         
     }
     catch (err){
-        console.log("error in config");
+        console.log(err);
         done(null,false)
     }
 }))
