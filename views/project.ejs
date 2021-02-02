@@ -58,7 +58,13 @@
   <!-- start of comment section -->
   <div class="my-3">
 <h4>Comments</h4>
-<div id="pastComments"></div>
+<div id="pastComments">
+<p></p><% comment.forEach(comment=> { %>
+ <b><%= comment.username %>:</b><br>
+ <%= comment.comment %> <br>
+<% }) %></p>
+
+</div>
 <div>
   <textarea name="comments" id="commentBox" cols="97" rows="4" placeholder="Leave a Comment (be nice)..."></textarea><br>
   <button type="submit" id="submitButton" class="btn btn-primary">Submit Comment</button>
