@@ -17,10 +17,9 @@ router.post("/submission", async (req, res) => {
     let languages = req.body.languages;
     let hostLink = req.body.hostLink;
     let score = req.body.score;
-    let collaborators = req.body.help;
+    let collaborators = req.body.collaborators;
 
-
-
+    
     try {
     let insertResult = await db.projects.create({
         userID: userID,
@@ -30,6 +29,7 @@ router.post("/submission", async (req, res) => {
         githubUsername: usernameGithub,
         githubRepo: repoGithub,
         hostLink: hostLink,
+        collaborators: collaborators,
         score: score
     });
     console.log('++++++++++++');
