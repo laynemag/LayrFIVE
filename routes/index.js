@@ -16,6 +16,8 @@ router.get("/", (req, res) => {
 
 // );
 
+
+// Login logic with redirect on failure
 router.post('/', function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
         console.log("you are here")

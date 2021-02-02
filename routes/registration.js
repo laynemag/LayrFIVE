@@ -9,7 +9,7 @@ router.get("/registration", (req, res) => {
     res.render("registration");
 });
 
-router.post("/registration", async (req, res, next) => {
+router.post("/registration", async (req, res,) => {
     let username = req.body.username;
     let password = req.body.password;
     let email = req.body.email;
@@ -28,22 +28,16 @@ router.post("/registration", async (req, res, next) => {
         github: github,
         imageurl: imageurl,
         
-    });next();
+    })
 
-    app.get('/', function(req, res, next) {
-        passport.authenticate('local', function(err, user, info) {
-        if (err) { return next(err); }
-        if (!user) { return res.redirect('/login'); }
-        req.logIn(user, function(err) {
-            if (err) { return next(err); }
-            return res.redirect(`/homepage/${req.user.id}`);
-        });
-        })(req, res, next);
-    });
+    res.redirect("/")
     
 } catch (error) {
     res.send(`error: can't register this username`);
     }
+
+    
+    console.log("you are here");
 });
 
 module.exports = router;
