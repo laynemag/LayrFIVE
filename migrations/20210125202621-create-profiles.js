@@ -2,23 +2,20 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('profiles', {
-      // id: {
-      //   allowNull: false,
-      //   autoIncrement: true,
-      //   primaryKey: true,
-      //   type: Sequelize.INTEGER
-      // },
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
       userID: {
         type: Sequelize.INTEGER,
-        model: 'users',
-        key: 'id'
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       },
-      roleType: {
-        type: Sequelize.INTEGER,
-        model: 'roles',
-        key: 'roleType'
-      },
-      postTotal: {
+       postTotal: {
         type: Sequelize.INTEGER
       },
       userScorePY: {

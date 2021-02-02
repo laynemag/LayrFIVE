@@ -43,11 +43,14 @@ router.get('/project', async (req, res) => {
 
 router.post("/project", async (req, res) => {
     let commentBox = req.body.commentBox;
-
+    console.log(commentBox);
     try{
         let insertResult = await db.comment.create({
-            commentBox: commentBox
+            comment: commentBox,
+            username: req.user.username,
+            userID: req.user.id 
         })
+        console.log(insertResult);
     } catch (error) {
         res.send('Error submitting comment')
     }

@@ -13,6 +13,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.projects.belongsTo(models.users, {foreignKey: "id"})
+      models.comment.belongsTo(models.users, {foreignKey: "id"})
+      models.comment.belongsTo(models.users, {foreignKey: "username"})
     }
   };
   users.init({
