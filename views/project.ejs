@@ -10,6 +10,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/c018486525.js" crossorigin="anonymous"></script>
   </head>
   <body>
 <!-- header partial -->
@@ -22,13 +23,13 @@
 <div class="container-fluid d-flex">
 
   <!-- main feed  -->
-<div class="col-7 col-lg-9 border my-2">
+<div class="col-7 col-lg-9 my-2">
 
   <!-- tabs -->
   <div class="">
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" href="/homepage/:id">Back To Main Feed</a>
+        <a class="nav-link active" href="/homepage/<%= user[0].id %>">Back To Main Feed</a>
       </li>
     
     </ul>
@@ -38,18 +39,18 @@
 
   <!-- project card div -->
   <div class="card text-center">
-    <div class="card-header">
+    <div class="card-header blue1">
         <%=user[0].username%> 
     </div>
     <div class="card-body">
       <h5 class="card-title"><%= project[0].postTitle %> </h5>
       <p class="card-text"><%= project[0].postDesc %></p>
-     
+      <a href="https://github.com/<%=project[0].githubUsername%>/<%=project[0].githubRepo%>" class="btn btn-secondary blue5" target="_blank">See Project on Github</a>
     </div>
-    <div class="card-footer text-muted">
+    <div class="card-footer text-muted blue3">
         <% project[0].languages.forEach(language => { %>
       
-            <%= language %> |
+            <button type="button" class="btn btn-light mx-1"><%= language %><i class="far fa-thumbs-up"></i></button>
           
         <% }) %>
     </div>
@@ -69,10 +70,10 @@
 <!-- end main feed div -->
 
 <!-- sidebar -->
-<div class="col-5 col-lg-3 border">
-    <h3 class="mx-3"><%= userObj.username %></h3>
+<div class="col-5 col-lg-3 blue4">
+    <h3 class="mx-3 mt-2 text-grey"><%=user[0].username%></h3>
     <div class="d-flex justify-content-center">
-    <img src="<%=userObj.imageurl%>" class="card-img-top w-50 mb-3" alt="..." style="border-radius: 50%;">
+    <img src="<%=user[0].imageurl%>" class="card-img-top w-50 mb-3" alt="..." style="border-radius: 50%; border: black solid">
     </div>
     <!-- start of card -->
     <div class="card w-100" >
@@ -82,14 +83,15 @@
         <p class="card-text">Junior Software Engineer. Student at Digital Crafts. Looking to collaborate with other developers on projects.</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><i class="fab fa-js"></i> Javascript </li>
+        <li class="list-group-item"><i class="fab fa-js" ></i> Javascript </li>
         <li class="list-group-item"> <i class="fab fa-html5"></i> HTML</li>
         <li class="list-group-item"><i class="fab fa-css3-alt"></i> CSS </li>
         <li class="list-group-item"><i class="fab fa-python"></i> Python </li>
         <li class="list-group-item"><i class="fab fa-cuttlefish"></i><i class="fas fa-hashtag"></i></li>
       </ul>
       <div class="card-body">
-        <button type="button" class="btn btn-primary"><a href="<%= userObj.github%> " class="card-link" target="_blank" style="color: white;">My Github</a></button>
+        <button type="button" class="btn btn-primary"><a href="https://github.com/<%=user[0].github%> " class="card-link" target="_blank" style="color: white;">My Github</a></button>
+        
     
         <!-- <a href="#" class="card-link">Linked In</a> -->
       </div>
@@ -102,7 +104,7 @@
 
 </main>
 
-
+<%- include('partials/layout/footer.ejs') %> 
 
       
     <!-- Optional JavaScript -->

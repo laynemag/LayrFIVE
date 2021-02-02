@@ -18,10 +18,13 @@ router.get('/homepage/:userID', async (req, res) => {
         let userID = parseInt(req.params.userID);
         let users = await db.users.findAll({raw: true});
         let projects = await db.projects.findAll({raw: true});
+        let user = await db.users.findAll({where: {id:req.params.userID}, raw:true});
 
         res.render('homepage', {
             userObj: req.user.dataValues,
             projects: projects,
+            user: user,
+            users: users
         })
     }
     catch(error){
@@ -34,11 +37,7 @@ router.get('/homepage/:userID', async (req, res) => {
 // router.post('/homepage/:userID', async ((req, res) => {
 //     let language = req.body.language
     
-<<<<<<< HEAD
-//     let profiles = await db.profiles.update({raw: true})
-=======
 //     // let profiles = await db.profiles.update({raw: true})
->>>>>>> main
     
 // }))
 
