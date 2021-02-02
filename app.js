@@ -38,6 +38,7 @@ app.use(require('./routes/homepage'));
 app.use(require('./routes/registration'));
 app.use(require('./routes/submission'));
 app.use(require('./routes/project'));
+app.use(require('./routes/aboutus'));
 
 
 app.listen(PORT, () => {

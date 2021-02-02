@@ -4,6 +4,7 @@ var password = document.getElementById('password');
 var githubUsername = document.getElementById('githubUsername');
 var imageGithub;
 
+
 submitButton.addEventListener('click', async (e) => {
         e.preventDefault()
         try{
@@ -13,6 +14,8 @@ submitButton.addEventListener('click', async (e) => {
 
           if (result.avatar_url){
             imageGithub = result.avatar_url
+          } else {
+            imageGithub = '/images/avatar2.jpg'
           }
 
           let responseBack = await fetch('/registration', {
@@ -21,7 +24,7 @@ submitButton.addEventListener('click', async (e) => {
             body: JSON.stringify({
               username: username.value,
               password: password.value,
-              githubUsername: `https://github.com/${githubUsername.value}`,
+              githubUsername: githubUsername.value,
               imageurl: imageGithub
             })
           })
