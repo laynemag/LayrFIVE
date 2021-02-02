@@ -19,6 +19,8 @@ router.post("/submission", async (req, res) => {
     let score = req.body.score;
     let collaborators = req.body.collaborators;
 
+    console.log(collaborators);
+
     
     try {
     let insertResult = await db.projects.create({

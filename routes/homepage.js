@@ -34,7 +34,11 @@ router.get('/homepage/:userID', async (req, res) => {
 // router.post('/homepage/:userID', async ((req, res) => {
 //     let language = req.body.language
     
+<<<<<<< HEAD
 //     let profiles = await db.profiles.update({raw: true})
+=======
+//     // let profiles = await db.profiles.update({raw: true})
+>>>>>>> main
     
 // }))
 
