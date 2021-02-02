@@ -15,6 +15,8 @@ name = name.replace(/\s/g, '')
 submitForm.addEventListener('click', async (e) => {
     e.preventDefault();
     console.log('Project Submitted!');
+    console.log(githubProject);
+    console.log(githubUsername);
 
 
     // try{
@@ -26,6 +28,8 @@ submitForm.addEventListener('click', async (e) => {
         if (collaborators.value === "collaborators"){
             help = true
         }
+
+        console.log(help);
 
 
         let responseBack = await fetch('/submission', {
