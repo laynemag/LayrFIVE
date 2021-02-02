@@ -47,7 +47,7 @@ submitForm.addEventListener('click', async (e) => {
           })
           
         })
-        
+
       }
 
       catch(error){
