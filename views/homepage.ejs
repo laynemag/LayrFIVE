@@ -89,8 +89,8 @@
     <div class="card-body">
       <h5 class="card-title"><%=project.postTitle%> </h5>
       <p class="card-text"><%= project.postDesc %> </p>
-      <a href="/project" class="btn btn-secondary">Go to Project</a>
-    </div>
+      <a href="/project/<%=project.id%>/<%= project.userID %>" class="btn btn-secondary">Go to Project</a>
+    </div>  
     <div class="card-footer text-muted blue6">
       | <% project.languages.forEach(language => { %>
       
@@ -131,7 +131,7 @@
       <li class="list-group-item"><i class="fab fa-cuttlefish"></i><i class="fas fa-hashtag"></i></li>
     </ul>
     <div class="card-body">
-      <button type="button" class="btn btn-primary"><a href="<%= userObj.github%> " class="card-link" target="_blank" style="color: white;">My Github</a></button>
+      <button type="button" class="btn btn-primary"><a href="https://github.com/<%=userObj.github%> " class="card-link" target="_blank" style="color: white;">My Github</a></button>
   
       <!-- <a href="#" class="card-link">Linked In</a> -->
     </div>
