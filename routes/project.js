@@ -41,4 +41,18 @@ router.get('/project', async (req, res) => {
     
 })
 
+router.post("/project", async (req, res) => {
+    let commentBox = req.body.commentBox;
+
+    try{
+        let insertResult = await db.comment.create({
+            commentBox: commentBox
+        })
+    } catch (error) {
+        res.send('Error submitting comment')
+    }
+
+})
+
+
 module.exports = router;
