@@ -12,10 +12,14 @@ submitButton.addEventListener('click', async (e) => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
             commentBox: commentBox.value
+            
         })
+       
     })
     }
     catch(error){
         console.log(error);
     }
+    
 })
+

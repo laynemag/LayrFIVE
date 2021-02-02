@@ -13,8 +13,10 @@ router.get('/project/:id/:userID', async (req, res) => {
         let users = await db.users.findAll({raw: true});
         let project = await db.projects.findAll({where: {id:req.params.id}, raw:true});
         let user = await db.users.findAll({where: {id:req.params.userID}, raw:true});
+        let comment = await db.comment.findAll({raw:true});
         // console.log(project);
         // console.log(user);
+
 
 
 
@@ -33,7 +35,8 @@ router.get('/project/:id/:userID', async (req, res) => {
             userObj: req.user.dataValues,
             project: project,
             projectID: projectID,
-            user, user
+            user, user,
+            comment, comment
     
 
         })
