@@ -34,19 +34,24 @@
     </ul>
   </div>
   
+  
 
   <!-- project card div -->
   <div class="card text-center">
     <div class="card-header">
-      Project Owner -- can remove this header to make card more compact
+        <%=user[0].username%> 
     </div>
     <div class="card-body">
-      <h5 class="card-title">Title of Project</h5>
-      <p class="card-text">Description of Project Here. Explaining what they want help with if looking to collaborate.</p>
+      <h5 class="card-title"><%= project[0].postTitle %> </h5>
+      <p class="card-text"><%= project[0].postDesc %></p>
      
     </div>
     <div class="card-footer text-muted">
-      Icons for Languages Used || Scores || Github Link
+        <% project[0].languages.forEach(language => { %>
+      
+            <%= language %> |
+          
+        <% }) %>
     </div>
   </div>
   <!-- end project card -->
