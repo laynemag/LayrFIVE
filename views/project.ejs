@@ -49,10 +49,10 @@
       <p class="card-text"><%= project[0].postDesc %></p>
       <a href="https://github.com/<%=project[0].githubUsername%>/<%=project[0].githubRepo%>" class="btn btn-secondary blue5" target="_blank">See Project on Github</a>
     </div>
-    <div class="card-footer text-muted blue3">
+    <div class="card-footer text-muted blue3 languages">
         <% project[0].languages.forEach(language => { %>
       
-            <button type="button" class="btn btn-light mx-1 languages"><%= language %><i class="far fa-thumbs-up"></i></button>
+            <button type="button" class="btn btn-light mx-1" id="<%= language %> "><%= language %><i class="far fa-thumbs-up"></i></button>
           
         <% }) %>
     </div>

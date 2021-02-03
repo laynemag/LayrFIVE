@@ -15,7 +15,7 @@ module.exports = {
           key: 'id'
         }
       },
-       postTotal: {
+      postTotal: {
         type: Sequelize.INTEGER
       },
       userScorePY: {
