@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const db = require("../models");
-// const auth = require('../auth');
-
 
 router.get('/project/:id/:userID', async (req, res) => {
     console.log("---------------");
@@ -14,52 +12,93 @@ router.get('/project/:id/:userID', async (req, res) => {
         let project = await db.projects.findAll({where: {id:req.params.id}, raw:true});
         let user = await db.users.findAll({where: {id:req.params.userID}, raw:true});
         let comment = await db.comment.findAll({raw:true});
-        // console.log(project);
-        // console.log(user);
-
-
-
-
-        // for (let i = 0 ; i < users.length ; i++){
-        //     if (userID === users[i].id){
-        //         userObj = users[i]
-        //         console.log(users[i].username);
-        //         projectObj = await db.submissions.findAll({where: {id:users[i].authorID}, raw:true})
-        //         // authorObj = await db.author.findAll({where: {id:blogs[i].authorID}, raw:true})
-        //     }
-        // }
-
-        // projectObj = await db.submissions.findAll({where: {id:req.params.userID}, raw:true})
+        let languages = await db.languages.findAll({where: {userID:req.params.userID}, raw: true})
+        console.log(languages);
     
         res.render('project', {
             userObj: req.user.dataValues,
             project: project,
             projectID: projectID,
             user: user,
-            comment: comment
-    
-
+            comment: comment,
+            languages: languages
         })
         
     }
     catch(error){
         res.send(error);
     }
-    
-    
 })
 
 router.post("/project/:id/:userID", async (req, res) => {
     let commentBox = req.body.commentBox;
-    console.log(commentBox);
+    let language = req.body.language;
+    let score = req.body.score;
+
     try{
-        let insertResult = await db.comment.create({
-            comment: commentBox,
-            username: req.user.username,
-            userID: req.user.id,
-            projectID: req.params.id
-        })
-        console.log(insertResult);
+        if(commentBox){
+            let insertResult = await db.comment.create({
+                comment: commentBox,
+                username: req.user.username,
+                userID: req.user.id,
+                projectID: req.params.id
+            })
+            console.log(insertResult);
+            
+        }
+
+        let projectObj = await db.projects.findAll(
+            {where: {userID: req.params.userID}},
+            {raw: true})
+    
+        let currentScore = projectObj[0].dataValues.score;
+        let newScore = currentScore + score
+
+        let updatedProject = await db.projects.update(
+            {score: newScore},
+            {where: {userID: req.params.userID}},
+            {raw: true})
+
+        let profileObj = await db.languages.findAll(
+            {where: {userID: req.params.userID}},
+            {raw: true})
+        
+        let userScoreJS = profileObj[0].dataValues.userScoreJS
+        let userScorePY = profileObj[0].dataValues.userScorePY
+        let userScoreCsharp = profileObj[0].dataValues.userScoreCsharp
+        let userScoreCSS = profileObj[0].dataValues.userScoreCSS
+        let userScoreHTML = profileObj[0].dataValues.userScoreHTML
+        let userScoreJAVA = profileObj[0].dataValues.userScoreJAVA
+
+        switch (language){
+            case 'HTML' :
+                userScoreHTML += 1;
+                break
+            case 'Python' :
+                userScorePY += 1;
+                break
+            case 'Csharp' :
+                userScoreCsharp += 1;
+                break
+            case 'CSS' :
+                userScoreCSS += 1;
+                break
+            case 'JavaScript' :
+                userScoreJS += 1;
+                break
+            case 'JAVA' :
+                userScoreJAVA += 1;
+                break
+        }
+
+        let total = userScoreJS + userScorePY + userScoreHTML + userScoreCsharp + userScoreCSS + userScoreJAVA
+
+        let updatedProfile = await db.languages.update(
+            {postTotal: total, userScoreJS: userScoreJS, userScoreHTML: userScoreHTML, userScorePY: userScorePY, userScoreCsharp:userScoreCsharp, userScoreCSS:userScoreCSS, userScoreJAVA:userScoreJAVA},
+            {where: {userID: req.params.userID}},
+            {raw: true})
+
+
     } catch (error) {
         res.send('Error submitting comment')
     }

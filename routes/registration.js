@@ -18,22 +18,43 @@ router.post("/registration", async (req, res) => {
     let imageurl = req.body.imageurl
 
 
-    try {
+    // try {
     let passwordEncrypted = bcrypt.hashSync(password, 8);
 
     
-    let insertResult = await db.users.create({
+    let insertResultUser = await db.users.create({
         username: username,
         email: email,
         password: passwordEncrypted,
         github: github,
         imageurl: imageurl,
-        
     })
+
+    console.log('+++++++++++++++++++++++');
+
+    let record = await db.users.findAll({where: {username: username}}, {raw: true})
+    console.log(record[0].dataValues.id);
+
+    console.log('0000000000000000000000000000');
+
+    let insertResultProfile = await db.languages.create({
+        userID: record[0].dataValues.id,
+        PostTotal: 0,
+        userScoreJS: 0,
+        userScorePY: 0,
+        userScoreCsharp: 0,
+        userScoreHTML: 0,
+        userScoreCSS: 0,
+        userScoreJAVA: 0,
+    })
+
+    console.log('????????????????????????');
+
+
     
-    } catch (error) {
-    res.send(`error: can't register this username`);
-    }
+    // } catch (error) {
+    // res.send(`error: can't register this username`);
+    // }
 
     
     console.log("you are here");
