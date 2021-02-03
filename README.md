@@ -17,3 +17,7 @@ A user's profile displays cumulative language scores based on how many upvotes w
 * Sequelize
 * AWS 
 
+## Code
+* The project feed on the main page allows users to filter which projects they would like to view. By default, all projects are listed but users can select to filter them by individual language or by their own projects that they have submitted.
+* An example of the filter logic is below. Here, a call to the database was made for all projects then the filter method was used to make a new array of the projects that included the language selected.
+
