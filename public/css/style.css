@@ -4,9 +4,9 @@ header {
 
 footer {
   background-color: #2c7da0;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   bottom: 0;
+  width: 100vw;
 }
 
 body {
