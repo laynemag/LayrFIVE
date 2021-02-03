@@ -34,8 +34,7 @@ router.post("/submission", async (req, res) => {
         collaborators: collaborators,
         score: score
     });
-    console.log('++++++++++++');
-    console.log(insertResult);
+
     if (insertResult){
         res.redirect(`/homepage/${userID}`);
     }
