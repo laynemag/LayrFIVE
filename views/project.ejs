@@ -52,7 +52,7 @@
     <div class="card-footer text-muted blue3 languages">
         <% project[0].languages.forEach(language => { %>
       
-            <button type="button" class="btn btn-light mx-1" id="<%= language %> "><%= language %><i class="far fa-thumbs-up"></i></button>
+            <button type="button" class="btn btn-light mx-1 thumb" id="<%= language %> "><%= language %><i class="far fa-thumbs-up"></i></button>
           
         <% }) %>
     </div>
@@ -91,11 +91,11 @@
         <p class="card-text">Junior Software Engineer. Student at Digital Crafts. Looking to collaborate with other developers on projects.</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><i class="fab fa-js" ></i> Javascript </li>
-        <li class="list-group-item"> <i class="fab fa-html5"></i> HTML</li>
-        <li class="list-group-item"><i class="fab fa-css3-alt"></i> CSS </li>
-        <li class="list-group-item"><i class="fab fa-python"></i> Python </li>
-        <li class="list-group-item"><i class="fab fa-cuttlefish"></i><i class="fas fa-hashtag"></i></li>
+        <li class="list-group-item"><i class="fab fa-js" ></i> Javascript | <%= languages[0].userScoreJS %> </li>
+        <li class="list-group-item"> <i class="fab fa-html5"></i> HTML | <%= languages[0].userScoreHTML %></li>
+        <li class="list-group-item"><i class="fab fa-css3-alt"></i> CSS | | <%= languages[0].userScoreCSS %> </li>
+        <li class="list-group-item"><i class="fab fa-python"></i> Python | <%= languages[0].userScorePY %></li>
+        <li class="list-group-item"><i class="fab fa-cuttlefish"></i><i class="fas fa-hashtag">| <%= languages[0].userScoreCsharp %></i></li>
       </ul>
       <div class="card-body">
         <button type="button" class="btn btn-primary"><a href="https://github.com/<%=user[0].github%> " class="card-link" target="_blank" style="color: white;">My Github</a></button>

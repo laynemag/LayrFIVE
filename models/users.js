@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       models.projects.belongsTo(models.users, {foreignKey: "id"})
       models.comment.belongsTo(models.users, {foreignKey: "id"})
-      models.profile.belongsTo(models.users, {foreignKey: "id"})
+      models.languages.belongsTo(models.users, {foreignKey: "id"})
       models.comment.belongsTo(models.users, {foreignKey: "username"})
     }
   };

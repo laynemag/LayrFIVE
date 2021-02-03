@@ -37,7 +37,7 @@ router.post("/registration", async (req, res) => {
 
     console.log('0000000000000000000000000000');
 
-    let insertResultProfile = await db.profile.create({
+    let insertResultProfile = await db.languages.create({
         userID: record[0].dataValues.id,
         PostTotal: 0,
         userScoreJS: 0,

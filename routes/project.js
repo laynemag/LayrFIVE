@@ -12,13 +12,16 @@ router.get('/project/:id/:userID', async (req, res) => {
         let project = await db.projects.findAll({where: {id:req.params.id}, raw:true});
         let user = await db.users.findAll({where: {id:req.params.userID}, raw:true});
         let comment = await db.comment.findAll({raw:true});
+        let languages = await db.languages.findAll({where: {userID:req.params.userID}, raw: true})
+        console.log(languages);
     
         res.render('project', {
             userObj: req.user.dataValues,
             project: project,
             projectID: projectID,
             user: user,
-            comment: comment
+            comment: comment,
+            languages: languages
         })
         
     }
@@ -32,10 +35,6 @@ router.post("/project/:id/:userID", async (req, res) => {
     let language = req.body.language;
     let score = req.body.score;
 
-    console.log('+++++++++++++++++++++');
-    console.log(language);
-    console.log(score);
-
     try{
         if(commentBox){
             let insertResult = await db.comment.create({
@@ -48,35 +47,21 @@ router.post("/project/:id/:userID", async (req, res) => {
             
         }
 
-        console.log('______________==========_____________');
-
         let projectObj = await db.projects.findAll(
             {where: {userID: req.params.userID}},
             {raw: true})
-
-        console.log('``~~~~~~~~~~~~~~~~~~~~``');
     
         let currentScore = projectObj[0].dataValues.score;
         let newScore = currentScore + score
-
-        console.log(newScore);
 
         let updatedProject = await db.projects.update(
             {score: newScore},
             {where: {userID: req.params.userID}},
             {raw: true})
 
-        console.log('{}{}{}{{}{{}{}{}}}}');
-
-        console.log(db.profile);
-
-        let profileObj = await db.profile.findAll(
+        let profileObj = await db.languages.findAll(
             {where: {userID: req.params.userID}},
             {raw: true})
-
-        console.log(profileObj);
-
-        console.log('//////////////////////////////');
         
         let userScoreJS = profileObj[0].dataValues.userScoreJS
         let userScorePY = profileObj[0].dataValues.userScorePY
@@ -84,8 +69,6 @@ router.post("/project/:id/:userID", async (req, res) => {
         let userScoreCSS = profileObj[0].dataValues.userScoreCSS
         let userScoreHTML = profileObj[0].dataValues.userScoreHTML
         let userScoreJAVA = profileObj[0].dataValues.userScoreJAVA
-
-        console.log(userScoreHTML);
 
         switch (language){
             case 'HTML' :
@@ -108,10 +91,10 @@ router.post("/project/:id/:userID", async (req, res) => {
                 break
         }
 
-        console.log(userScoreHTML);
+        let total = userScoreJS + userScorePY + userScoreHTML + userScoreCsharp + userScoreCSS + userScoreJAVA
 
-        let updatedProfile = await db.profile.update(
-            {userScoreJS: userScoreJS, userScoreHTML: userScoreHTML, userScorePY: userScorePY, userScoreCsharp:userScoreCsharp, userScoreCSS:userScoreCSS, userScoreJAVA:userScoreJAVA},
+        let updatedProfile = await db.languages.update(
+            {postTotal: total, userScoreJS: userScoreJS, userScoreHTML: userScoreHTML, userScorePY: userScorePY, userScoreCsharp:userScoreCsharp, userScoreCSS:userScoreCSS, userScoreJAVA:userScoreJAVA},
             {where: {userID: req.params.userID}},
             {raw: true})
 
@@ -121,40 +104,6 @@ router.post("/project/:id/:userID", async (req, res) => {
     }
 
 })
-
-// router.post('/project/:id/:userID', async (req, res) => {
-//     let language = req.body.language;
-//     let score = req.body.score;
-
-//     console.log('+++++++++++++++++++++++++++++');
-//     console.log(language);
-//     console.log(score);
-    
-//     let record = await db.users.findAll(
-//         {where: {id: req.params.userID}},
-//         {raw: true})
-
-//     console.log('+++++++++++');
-
-//     let currentScore = record.score;
-//     let newScore = currentScore + score
-
-
-//     console.log(currentScore);
-//     console.log(newScore);
-
-
-    // let profile = await db.profile.update(
-    //     {userScoreJS: 3},
-    //     {where: {userID: req.params.userID}},
-    //     {raw: true})
-
-    // let project = await db.projects.update(
-    //     {score: newScore},
-    //     {where: {userID: }},
-    //     {raw: true})
-    
-// })
 
 
 module.exports = router;
