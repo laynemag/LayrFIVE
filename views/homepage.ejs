@@ -59,17 +59,18 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Language</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">JavaScript</a>
-          <a class="dropdown-item" href="#">HTML/CSS</a>
-          <a class="dropdown-item" href="#">Python </a>
-          <a class="dropdown-item" href="#">C#</a>
-          <a class="dropdown-item" href="#">Java</a>
+          <a class="dropdown-item" href="/homepage/<%= user[0].id %>/JavaScript">JavaScript</a>
+          <a class="dropdown-item" href="/homepage/<%= user[0].id %>/HTML">HTML</a>
+          <a class="dropdown-item" href="/homepage/<%= user[0].id %>/CSS">CSS</a>
+          <a class="dropdown-item" href="/homepage/<%= user[0].id %>/Python">Python </a>
+          <a class="dropdown-item" href="/homepage/<%= user[0].id %>/Csharp">C#</a>
+          <a class="dropdown-item" href="/homepage/<%= user[0].id %>/JAVA">Java</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">All Projects</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="#">My Projects</a>
+        <a class="nav-link active" href="/homepage/<%= user[0].id %>/myprojects" id="myprojects">My Projects</a>
       </li>
       <li class="nav-item">
         <a class="nav-link active" href="/submission">Add Project</a>
@@ -116,6 +117,7 @@
 
 <div class="col-5 col-lg-3 blue4">
   <h3 class="mx-3 mt-2 text-grey" >Hello, <%= userObj.username %>!</h3>
+  <div id="userID" style="display:none"><%= user[0].id %> </div>
   <div class="d-flex justify-content-center blue4">
   <img src="<%=userObj.imageurl%>" class="card-img-top w-50 mb-3" alt="..." style="border-radius: 50%; border: solid;">
 
@@ -157,6 +159,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="/js/homepage.js"></script>
+
   </body>
 </html>
