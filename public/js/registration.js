@@ -28,11 +28,12 @@ submitButton.addEventListener('click', async (e) => {
               imageurl: imageGithub
             })
           })
-          window.location.assign('/')
+          
         }
 
         catch(error){
           console.log(error);
         }
 
+        window.location.assign('/index')
 })
