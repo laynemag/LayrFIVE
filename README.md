@@ -1,6 +1,6 @@
 # LayrFIVE
 
-<img src="public/images/layrFIVEcircle.png" alt="" style="height: 200px;">
+<img src="public/images/layrFIVEcircle.png" alt="" style="height: 100px;">
 
 ## What is LayrFIVE?
 A collaborative/social development site for software developers. The purpose of this website is to give developers a place to share their projects for others to comment and rate the quality of code in each language used. 
