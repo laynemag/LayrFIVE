@@ -5,6 +5,7 @@ let githubProject = document.getElementById('githubProject');
 let githubUsername = document.getElementById('githubUsername');
 let collaborators = document.getElementById('collaborators');
 let hostLink = document.getElementById('hostlink');
+let userID = document.getElementById('userID')
 let help = false;
 let name = githubUsername.value
 
@@ -54,5 +55,5 @@ submitForm.addEventListener('click', async (e) => {
         console.log(error);
       }
 
-      window.location.assign(`/homepage/:id`)
+      window.location.assign(`/homepage/${userID.innerText}`)
 })
