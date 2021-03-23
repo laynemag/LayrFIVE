@@ -9,6 +9,7 @@ A collaborative/social development site for software developers. The purpose of 
 A user's profile displays cumulative language scores based on how many upvotes were given from other developers when viewing the user's projects. To facilitate collaboration, comments are allowed on each project and each user's profile links to their github for others to access. 
 
 ## Technologies Used 
+* JavaScript
 * EJS
 * HTML/CSS
 * Sass
