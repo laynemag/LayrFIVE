@@ -16,6 +16,7 @@ A user's profile displays cumulative language scores based on how many upvotes w
 * Bootstrap
 * Node.js
 * Sequelize
+* PostgreSQL
 * AWS 
 
 ## Code
